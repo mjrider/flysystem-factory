@@ -1,17 +1,20 @@
 {
-	"name": "mjrider/flysystem-factory",
-	"description": "create a flysystem filesystem from an url formated configuration string",
-	"license": "MIT",
-    "require": {
-        "league/flysystem": "^1.0",
-        "arc/web": "^2.1"
-    },
-	 "autoload": {
-		 "psr-4": { "MJRider\\FlysystemFactory\\": "src/" }
-	 },
-    "require-dev": {
-        "league/flysystem-aws-s3-v3": "^1.0",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.2",
-        "wimg/php-compatibility": "^8.0"
-    }
+   "name" : "mjrider/flysystem-factory",
+   "autoload" : {
+      "psr-4" : {
+         "MJRider\\FlysystemFactory\\" : "src/"
+      }
+   },
+   "description" : "create a flysystem filesystem from an url formated configuration string",
+   "require" : {
+      "league/flysystem" : "^1.0",
+      "arc/web" : "^2.1"
+   },
+   "require-dev" : {
+      "wimg/php-compatibility" : "^8.0",
+      "league/flysystem-aws-s3-v3" : "^1.0",
+      "mhetreramesh/flysystem-backblaze" : "^1.0",
+      "dealerdirect/phpcodesniffer-composer-installer" : "^0.4.2"
+   },
+   "license" : "MIT"
 }
