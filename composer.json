@@ -1,4 +1,7 @@
 {
+	"name": "mjrider/flysystem-factory",
+	"description": "create a flysystem filesystem from an url formated configuration string",
+	"license": "MIT",
     "require": {
         "league/flysystem": "^1.0",
         "arc/web": "^2.1"
