@@ -1,0 +1,12 @@
+{
+    "require": {
+        "league/flysystem": "^1.0",
+        "arc/web": "^2.1"
+    },
+	 "autoload": {
+		 "psr-4": { "MJRider\\FlysystemFactory\\": "src/" }
+	 },
+    "require-dev": {
+        "league/flysystem-aws-s3-v3": "^1.0"
+    }
+}
