@@ -7,6 +7,8 @@
 		 "psr-4": { "MJRider\\FlysystemFactory\\": "src/" }
 	 },
     "require-dev": {
-        "league/flysystem-aws-s3-v3": "^1.0"
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.2",
+        "wimg/php-compatibility": "^8.0"
     }
 }
