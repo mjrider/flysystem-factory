@@ -1,5 +1,6 @@
 <?php
 namespace MJRider\FlysystemFactory;
+
 use \arc\url as url;
 use \arc\path as path;
 use \Aws\S3\S3Client;
@@ -17,7 +18,7 @@ class S3
         'region' => $url->host,
         'version' => 'latest'
         ];
-        if(isset($url->query->endpoint)) {
+        if (isset($url->query->endpoint)) {
             $args['endpoint'] = $url->query->endpoint;
         }
         $bucket  = \arc\path::head($url->path);
@@ -29,4 +30,3 @@ class S3
         return $adapter;
     }
 }
-
