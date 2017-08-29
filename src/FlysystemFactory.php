@@ -1,10 +1,11 @@
 <?php
-namespace MJRider\FlysystemFactory;
+namespace MJRider;
 
 use League\Flysystem\Filesystem;
 use arc\url as url;
+use MJRider\FlysystemFactory;
 
-class Factory
+class FlysystemFactory
 {
 
     public static function create($endpoint)
@@ -15,10 +16,10 @@ class Factory
 
         switch ($url->scheme) {
             case 's3':
-                $adapter = S3::create($url);
+                $adapter = FlysystemFactory\S3::create($url);
                 break;
             case 'b2':
-                $adapter = B2::create($url);
+                $adapter = FlysystemFactory\B2::create($url);
                 break;
             default:
                 // TODO fix our own exception handling

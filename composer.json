@@ -2,7 +2,7 @@
    "name" : "mjrider/flysystem-factory",
    "autoload" : {
       "psr-4" : {
-         "MJRider\\FlysystemFactory\\" : "src/"
+         "MJRider\\" : "src/"
       }
    },
    "description" : "create a flysystem filesystem from an url formated configuration string",
