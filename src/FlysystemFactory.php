@@ -15,16 +15,16 @@ class FlysystemFactory
         $adapter = null;
 
         switch ($url->scheme) {
-            case 's3':
-                $adapter = FlysystemFactory\S3::create($url);
-                break;
-            case 'b2':
-                $adapter = FlysystemFactory\B2::create($url);
-                break;
-            default:
-                // TODO fix our own exception handling
-                var_dump($endpoint, $url);
-                throw new \Exception(sprintf('Unknown scheme [%s]', $url->scheme));
+        case 's3':
+            $adapter = FlysystemFactory\S3::create($url);
+            break;
+        case 'b2':
+            $adapter = FlysystemFactory\B2::create($url);
+            break;
+        default:
+            // TODO fix our own exception handling
+            var_dump($endpoint, $url);
+            throw new \Exception(sprintf('Unknown scheme [%s]', $url->scheme));
         }
         if (!is_null($adapter)) {
             $filesystem = new Filesystem($adapter);
