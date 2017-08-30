@@ -30,6 +30,10 @@ class FlysystemFactory
             case 'b2':
                 $adapter = FlysystemFactory\B2::create($url);
                 break;
+            case 'file':
+            case 'local':
+                $adapter = FlysystemFactory\Local::create($url);
+                break;
             default:
                 // TODO fix our own exception handling
                 var_dump($endpoint, $url);
