@@ -6,8 +6,11 @@ use \arc\path as path;
 use \Aws\S3\S3Client;
 use \League\Flysystem\AwsS3v3\AwsS3Adapter;
 
-class S3
+class S3 implements AdapterFactoryInterface
 {
+    /**
+     * @inheritDoc
+     */
     public static function create($url)
     {
         $args = [
