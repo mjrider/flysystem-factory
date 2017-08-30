@@ -1,0 +1,36 @@
+---
+language: php
+sudo: required
+
+cache:
+  bundler: true
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.ocular
+
+php:
+  - 7.0
+  - 5.6
+
+before_install:
+  - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - wget https://scrutinizer-ci.com/ocular.phar -O ~/.ocular/ocular.phar
+
+install:
+  - sudo apt-get install libxml2-utils
+  - curl https://bootstrap.pypa.io/get-pip.py >> ~/get-pip.py
+  - sudo python ~/get-pip.py
+  - sudo pip install yamllint
+  - composer global require "dealerdirect/qa-tools:*"
+
+script:
+  - composer validate
+  - composer install -o --prefer-dist --no-scripts
+  - find . -type f -name "*.json" -not -path "./vendor/*" -print0 | xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -c -q
+  - find . -type f -name "*.yml" -not -path "./vendor/*" -print0 | xargs -0 --no-run-if-empty -n1 yamllint
+  - find . -type f -name "*.xml" -not -path "./vendor/*" -print0 | xargs -0 --no-run-if-empty -n1 xmllint --noout --encode utf-8
+  - ~/.composer/vendor/bin/parallel-lint ./src
+  - ~/.composer/vendor/bin/phpcs -p -n ./src
+  - ~/.composer/vendor/bin/security-checker -n security:check --end-point=http://security.sensiolabs.org/check_lock
+#  - php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml.dist
+#  - php ~/.ocular/ocular.phar code-coverage:upload --format=php-clover ./builds/tests/clover.xml -vvv
