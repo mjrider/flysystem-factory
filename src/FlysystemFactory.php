@@ -4,10 +4,18 @@ namespace MJRider;
 use League\Flysystem\Filesystem;
 use arc\url as url;
 use MJRider\FlysystemFactory;
-
+/**
+ * Static factory class which wil instanciate a flysystem filesystem configured from a single string as argument
+ * the protocol(adapter)
+ */
 class FlysystemFactory
 {
-
+/**
+ * Create a flysystem instance configured from a uri endpoint
+ *
+ * @param string $endpoint 
+ * @return League\Flysystem\Filesystem instance
+ */
     public static function create($endpoint)
     {
         $url = url::url($endpoint);
