@@ -28,9 +28,15 @@ install:
 script:
   - composer validate
   - composer install -o --prefer-dist --no-scripts
-  - find . -type f -name "*.json" -not -path "./vendor/*" -print0 | xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -c -q
-  - find . -type f -name "*.yml" -not -path "./vendor/*" -print0 | xargs -0 --no-run-if-empty -n1 yamllint
-  - find . -type f -name "*.xml" -not -path "./vendor/*" -print0 | xargs -0 --no-run-if-empty -n1 xmllint --noout --encode utf-8
+  - >
+    find . -type f -name "*.json" -not -path "./vendor/*" -print0 |
+    xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -c -q
+  - >
+    find . -type f -name "*.yml" -not -path "./vendor/*" -print0 |
+    xargs -0 --no-run-if-empty -n1 yamllint
+  - >
+    find . -type f -name "*.xml" -not -path "./vendor/*" -print0 |
+    xargs -0 --no-run-if-empty -n1 xmllint --noout --encode utf-8
   - ~/.composer/vendor/bin/parallel-lint ./src
   - ~/.composer/vendor/bin/phpcs -p -n ./src
   - ~/.composer/vendor/bin/security-checker -n security:check --end-point=http://security.sensiolabs.org/check_lock
