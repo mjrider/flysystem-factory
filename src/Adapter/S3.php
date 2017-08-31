@@ -1,5 +1,5 @@
 <?php
-namespace MJRider\FlysystemFactory;
+namespace MJRider\FlysystemFactory\Adapter;
 
 use \arc\url as url;
 use \arc\path as path;
@@ -14,12 +14,12 @@ class S3 implements AdapterFactoryInterface
     public static function create($url)
     {
         $args = [
-        'credentials' => [
-        'key'    => $url->user,
-        'secret' => $url->pass
-        ],
-        'region' => $url->host,
-        'version' => 'latest'
+            'credentials' => [
+                'key'    => $url->user,
+                'secret' => $url->pass
+            ],
+            'region' => $url->host,
+            'version' => 'latest'
         ];
         if (isset($url->query->endpoint)) {
             $args['endpoint'] = $url->query->endpoint;

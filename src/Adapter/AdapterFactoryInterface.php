@@ -1,5 +1,5 @@
 <?php
-namespace MJRider\FlysystemFactory;
+namespace MJRider\FlysystemFactory\Adapter;
 
 /**
  * Interface defining the interface for AdapterFactory's

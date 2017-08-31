@@ -1,5 +1,5 @@
 <?php
-namespace MJRider\FlysystemFactory;
+namespace MJRider\FlysystemFactory\Adapter;
 
 use Mhetreramesh\Flysystem\BackblazeAdapter;
 use ChrisWhite\B2\Client;

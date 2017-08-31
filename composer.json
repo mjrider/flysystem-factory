@@ -2,8 +2,9 @@
    "name" : "mjrider/flysystem-factory",
    "autoload" : {
       "psr-4" : {
-         "MJRider\\" : "src/"
-      }
+         "MJRider\\FlysystemFactory\\" : "src/"
+      },
+      "files": ["src/functions.php"]
    },
    "description" : "create a flysystem filesystem from an url formated configuration string",
    "require" : {

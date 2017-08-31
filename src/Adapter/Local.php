@@ -1,5 +1,5 @@
 <?php
-namespace MJRider\FlysystemFactory;
+namespace MJRider\FlysystemFactory\Adapter;
 
 use League\Flysystem\Adapter\Local as FL;
 
