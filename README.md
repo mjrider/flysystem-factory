@@ -4,10 +4,10 @@ This is a factory package to provide for an easy to use configuration and api fo
 
 **Package details** 
 
-[![Latest Release Version](https://img.shields.io/github/release/mjrider/flysystemfactory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystemfactory)
-[![License](https://img.shields.io/github/license/mjrider/flysystemfactory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystemfactory)
+[![Latest Release Version](https://img.shields.io/github/release/mjrider/flysystem-factory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystem-factory)
+[![License](https://img.shields.io/github/license/mjrider/flysystem-factory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystem-factory)
 ![Maintenance](https://img.shields.io/maintenance/yes/2017.svg?style=flat-square)
-[![Total Downloads](https://img.shields.io/packagist/dt/mjrider/flysystemfactory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystemfactory)
+[![Total Downloads](https://img.shields.io/packagist/dt/mjrider/flysystem-factory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystem-factory)
 
 **Code quality**
 
@@ -23,14 +23,14 @@ This is a factory package to provide for an easy to use configuration and api fo
 
 You can require the bundle:
 ```
-composer require mjrider/flysystemfactory
+composer require mjrider/flysystem-factory
 ```
 
 Or, if you prefer, you can add the following line to your `composer.json` file:
 
 ```json
 "require": {
-   "mjrider/flysystemfactory": "^0.1"
+   "mjrider/flysystem-factory": "^0.1"
 }
 ```
 
@@ -42,7 +42,7 @@ From time to time there will be breaking change. These will be documented in [UP
 
 It is highly recommended to check what has changed before upgrading to a new minor or major release.
  
-[UPGRADING.md]: https://github.com/mjrider/flysystemfactory/blob/master/UPGRADING.md
+[UPGRADING.md]: https://github.com/mjrider/flysystem-factory/blob/master/UPGRADING.md
 
 ### Enforcement
 The `master` branch is protected so that _at least_ one other developer approves
@@ -57,7 +57,7 @@ For more information about required reviews for pull requests, please check the 
 
 For a full list off all author and/or contributors, please check the [contributors page].
 
-[contributors page]: https://github.com/mjrider/flysystemfactory/graphs/contributors
+[contributors page]: https://github.com/mjrider/flysystem-factory/graphs/contributors
 
 ## License
 MIT License
