@@ -6,5 +6,11 @@ namespace MJRider\FlysystemFactory\Adapter;
  */
 interface AdapterFactoryInterface
 {
+    /**
+     * Create Flysystem Adapter
+     *
+     * @param \arc\url\Url $url
+     * @return \League\Flysystem\AdapterInterface;
+     */
     public static function create($url);
 }
