@@ -14,6 +14,10 @@ php:
   - 7.0
   - 5.6
 
+matrix:
+  allow_failures:
+    - php: hhvm
+
 before_install:
   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - wget https://scrutinizer-ci.com/ocular.phar -O ~/.ocular/ocular.phar
