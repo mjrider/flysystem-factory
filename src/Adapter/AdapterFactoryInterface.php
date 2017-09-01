@@ -6,5 +6,5 @@ namespace MJRider\FlysystemFactory\Adapter;
  */
 interface AdapterFactoryInterface
 {
-    public static function create($endpoint);
+    public static function create($url);
 }
