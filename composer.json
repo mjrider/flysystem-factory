@@ -25,5 +25,9 @@
       "mhetreramesh/flysystem-backblaze" : "^1.0",
       "dealerdirect/phpcodesniffer-composer-installer" : "^0.4.2"
    },
+   "suggest": {
+      "league/flysystem-aws-s3-v3" : "For S3 support",
+      "mhetreramesh/flysystem-backblaze" : "For Backblaze support"
+   },
    "license" : "MIT"
 }
