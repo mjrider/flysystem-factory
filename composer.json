@@ -1,12 +1,20 @@
 {
    "name" : "mjrider/flysystem-factory",
+   "description": "Simple factory library to create a flysystem instance from a url",
+   "type": "library",
+   "keywords": ["flysystem","factory"],
+   "authors": [
+     {
+       "name": "Robbert Müller",
+       "role": "Developer"
+     }
+   ],
    "autoload" : {
       "psr-4" : {
          "MJRider\\FlysystemFactory\\" : "src/"
       },
       "files": ["src/functions.php"]
    },
-   "description" : "create a flysystem filesystem from an url formated configuration string",
    "require" : {
       "league/flysystem" : "^1.0",
       "arc/web" : "^2.1"
