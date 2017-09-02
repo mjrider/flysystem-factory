@@ -8,7 +8,8 @@ use MJRider\FlysystemFactory\Adapter;
 /**
  * Create a flysystem instance configured from a uri endpoint
  *
- * @param string $endpoint
+ * @param string $endpoint url formated string describing the flysystem configuration
+ *
  * @return League\Flysystem\Filesystem instance
  */
 function create($endpoint)
