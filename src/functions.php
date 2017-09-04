@@ -10,7 +10,7 @@ use MJRider\FlysystemFactory\Adapter;
  *
  * @param string $endpoint url formated string describing the flysystem configuration
  *
- * @return League\Flysystem\Filesystem instance
+ * @return \League\Flysystem\Filesystem instance
  */
 function create($endpoint)
 {
@@ -30,9 +30,7 @@ function create($endpoint)
             $adapter = Adapter\Local::create($url);
             break;
         default:
-            // TODO fix our own exception handling
-            var_dump($endpoint, $url);
-            throw new \Exception(sprintf('Unknown scheme [%s]', $url->scheme));
+            throw new \InvalidArgumentException(sprintf('Unknown scheme [%s]', $url->scheme));
     }
     if (!is_null($adapter)) {
         $filesystem = new Filesystem($adapter);
