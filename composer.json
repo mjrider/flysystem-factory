@@ -17,7 +17,7 @@
    },
    "require" : {
       "league/flysystem" : "^1.0",
-      "arc/web" : "^2.1"
+      "arc/web" : "^1.1 || ^2.1"
    },
    "require-dev" : {
       "wimg/php-compatibility" : "^8.0",
