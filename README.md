@@ -15,8 +15,7 @@ This is a factory package to provide for an easy to use configuration and api fo
 
 **Compatibility** 
 
-![PHP_Compatibility 5.5 and below](https://img.shields.io/badge/empty-no-red.svg?&label=PHP%20<%205.6&style=flat-square)
-![PHP_Compatibility 5.6 and up](https://img.shields.io/badge/empty-yes-brightgreen.svg?&label=PHP%20>=%205.6&style=flat-square)
+![PHP_Compatibility 5.4 and up](https://img.shields.io/badge/empty-yes-brightgreen.svg?&label=PHP%20>=%205.4&style=flat-square)
 ![PHP_Compatibility 7.0 and up](https://img.shields.io/badge/empty-yes-brightgreen.svg?&label=PHP%20>=%207.0&style=flat-square)
 
 ## Usage
