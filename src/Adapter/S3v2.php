@@ -4,9 +4,9 @@ namespace MJRider\FlysystemFactory\Adapter;
 use \arc\url as url;
 use \arc\path as path;
 use \Aws\S3\S3Client;
-use \League\Flysystem\AwsS3v3\AwsS3Adapter;
+use \League\Flysystem\AwsS3v2\AwsS3Adapter;
 
-class S3 implements AdapterFactoryInterface
+class S3v2 implements AdapterFactoryInterface
 {
     /**
      * @inheritDoc
@@ -14,15 +14,16 @@ class S3 implements AdapterFactoryInterface
     public static function create($url)
     {
         $args = [
+            'key'    => urldecode($url->user),
+            'secret' => urldecode($url->pass),
+            'region' => $url->host,
             'credentials' => [
-                'key'    => urldecode($url->user),
+                'key'    => $url->user,
                 'secret' => urldecode($url->pass)
             ],
-            'region' => $url->host,
-            'version' => 'latest'
         ];
         if (isset($url->query->endpoint)) {
-            $args['endpoint'] = urldecode($url->query->endpoint);
+            $args['base_url'] = urldecode($url->query->endpoint);
         }
         $bucket  = \arc\path::head($url->path);
         $subpath = \arc\path::tail($url->path);
