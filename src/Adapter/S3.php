@@ -22,7 +22,7 @@ class S3 implements AdapterFactoryInterface
             'version' => 'latest'
         ];
         if (isset($url->query->endpoint)) {
-            $args['endpoint'] = urldecode($url->query->endpoint);
+            $args[ 'endpoint' ] = urldecode($url->query->endpoint);
         }
         $bucket  = \arc\path::head($url->path);
         $subpath = \arc\path::tail($url->path);

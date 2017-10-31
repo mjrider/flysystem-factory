@@ -23,7 +23,7 @@ class S3v2 implements AdapterFactoryInterface
             ],
         ];
         if (isset($url->query->endpoint)) {
-            $args['base_url'] = urldecode($url->query->endpoint);
+            $args[ 'base_url' ] = urldecode($url->query->endpoint);
         }
         $bucket  = \arc\path::head($url->path);
         $subpath = \arc\path::tail($url->path);
