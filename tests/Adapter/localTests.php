@@ -15,6 +15,4 @@ class LocalTest extends TestCase {
 		$this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
 		$this->assertInstanceOf('\League\Flysystem\Adapter\Local', $filesystem->getAdapter());
 	}
-
 }
-
