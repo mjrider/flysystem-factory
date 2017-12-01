@@ -44,5 +44,7 @@ script:
   - ~/.composer/vendor/bin/parallel-lint ./src
   - ~/.composer/vendor/bin/phpcs -p -n ./src
   - ~/.composer/vendor/bin/security-checker -n security:check --end-point=http://security.sensiolabs.org/check_lock
-#  - php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml.dist
-#  - php ~/.ocular/ocular.phar code-coverage:upload --format=php-clover ./builds/tests/clover.xml -vvv
+  - php -dxdebug.coverage_enable=1 ~/.composer/vendor/bin/phpunit --configuration ./phpunit.xml.dist
+
+after_script:
+  - php ~/.ocular/ocular.phar code-coverage:upload --format=php-clover coverage.xml -vvv
