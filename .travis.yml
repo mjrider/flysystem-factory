@@ -1,6 +1,14 @@
 ---
 language: php
 sudo: required
+env:
+  global:
+    - TEST_S3_LOCATION='s3://TRAVISACCESSPHPUNIT:wJalrXUtnFEMI%2FSECRET%2FTRAVISPHPUNIT@us-east-1/?endpoint=http%3A%2F%2F127.0.0.1%3A9999&use_path_style_endpoint=1'
+
+services:
+  - docker
+  - redis-server
+  - memcached
 
 cache:
   bundler: true
@@ -28,6 +36,10 @@ install:
   - sudo python ~/get-pip.py
   - sudo pip install yamllint
   - composer global require "dealerdirect/qa-tools:*"
+  - "docker run -p 9999:9999 --name minio --rm \
+     -e 'MINIO_ACCESS_KEY=TRAVISACCESSPHPUNIT' \
+     -e 'MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/TRAVISKEYPHPUNIT' \
+     --detach minio/minio server /data"
 
 script:
   - composer validate
