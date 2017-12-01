@@ -16,8 +16,8 @@
       "files": ["src/functions.php"]
    },
    "require" : {
-      "league/flysystem" : "^1.0",
-      "arc/web" : "^1.1 || ^2.1"
+      "arc/web": "^1.1 || ^2.1",
+      "league/flysystem": "^1.0"
    },
    "require-dev" : {
       "wimg/php-compatibility" : "^8.0",
