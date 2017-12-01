@@ -23,7 +23,7 @@ class Predis implements CacheStoreFactoryInterface
         }
 
         if (isset($url->query->expire)) {
-            $cachekey = $url->query->expire;
+            $expire = $url->query->expire;
             unset($url->query->expire);
         }
         if ($url->scheme == 'predis') {

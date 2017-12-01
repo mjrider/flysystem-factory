@@ -7,6 +7,7 @@ class PredisTest extends TestCase {
 	public function setup()
 	{
 		$this->root = 'null:/';
+		// FIXME: getenv redis endpoint instead of hardcoding a empty url
 	}
 
 	public function testPredis() {
@@ -23,5 +24,22 @@ class PredisTest extends TestCase {
 		$this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
 		$this->assertInstanceOf('\League\Flysystem\Cached\CachedAdapter', $filesystem->getAdapter());
 		$this->assertInstanceOf('\League\Flysystem\Cached\Storage\Predis', $filesystem->getAdapter()->getCache());
+	}
+
+	public function testPredisProperties() {
+		$filesystem = \MJRider\FlysystemFactory\create($this->root);
+		$filesystem = \MJRider\FlysystemFactory\cache('predis-tcp:?cachekey=foobar&expire=3767',$filesystem);
+		$cache = $filesystem->getAdapter()->getCache();
+
+		$reflCache = new ReflectionClass($cache);
+
+		$reflkey = $reflCache->getProperty('key');
+		$reflkey->setAccessible(true);
+
+		$reflexpire = $reflCache->getProperty('expire');
+		$reflexpire->setAccessible(true);
+
+		$this->assertEquals('foobar',$reflkey->getValue($cache));
+		$this->assertEquals(3767,$reflexpire->getValue($cache));
 	}
 }
