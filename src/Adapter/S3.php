@@ -19,13 +19,14 @@ class S3 implements AdapterFactoryInterface
                 'secret' => urldecode($url->pass)
             ],
             'region' => $url->host,
-            'version' => 'latest'
+                'version' => 'latest',
+                'use_path_style_endpoint' => (bool)$url->query->use_path_style_endpoint,
         ];
         if (isset($url->query->endpoint)) {
             $args[ 'endpoint' ] = urldecode($url->query->endpoint);
         }
-        $bucket  = \arc\path::head($url->path);
-        $subpath = \arc\path::tail($url->path);
+        $bucket  = (string)\arc\path::head($url->path);
+        $subpath = (string)\arc\path::tail($url->path);
 
         $client = S3Client::factory($args);
 
