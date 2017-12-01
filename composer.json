@@ -28,7 +28,9 @@
    },
    "suggest": {
       "league/flysystem-aws-s3-v3" : "For S3 support",
-      "mhetreramesh/flysystem-backblaze" : "For Backblaze support"
+      "mhetreramesh/flysystem-backblaze" : "For Backblaze support",
+      "predis/predis": "predis cache support",
+      "ext-phpredis": "phpredis cache support"
    },
    "license" : "MIT"
 }
