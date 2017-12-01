@@ -4,6 +4,7 @@ namespace MJRider\FlysystemFactory;
 use League\Flysystem\Filesystem;
 use arc\url as url;
 use MJRider\FlysystemFactory\Adapter;
+use League\Flysystem\Cached\CachedAdapter as FCA;
 
 /**
  * Create a flysystem instance configured from a uri endpoint
@@ -42,4 +43,38 @@ function create($endpoint)
         $filesystem = new Filesystem($adapter);
     }
     return $filesystem;
+}
+
+/**
+ * Create a caching flysystem instance configured from a uri endpoint
+ * if no cache config is provided, it returns the flysystem
+ * @param string $endpoint url formated string describing the cache configuration
+ * @param mixed $store flysystem
+ *
+ * @return \League\Flysystem\Filesystem instance
+ */
+function cache($cache, Filesystem $flysystem)
+{
+    $url = url::url($cache);
+
+    $cachestore = null;
+    switch ($url->scheme) {
+        case 'phpredis':
+        case 'predis':
+            //TODO: implement
+            break;
+        case 'memory':
+            $cachestore = CacheStore\Memory::create($url);
+            break;
+        case 'stash':
+        case 'memcached':
+        default:
+    }
+    if (isset($cachestore)) {
+        // Decorate the filesystem with a cacheadapter
+        $adapter = $flysystem->getAdapter();
+        $cachedAdapter = new FCA($adapter, $cachestore);
+        $flysystem = new Filesystem($cachedAdapter);
+    }
+    return $flysystem;
 }
