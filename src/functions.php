@@ -32,6 +32,9 @@ function create($endpoint)
         case 'local':
             $adapter = Adapter\Local::create($url);
             break;
+        case 'null':
+            $adapter = Adapter\NullAdapter::create($url);
+            break;
         default:
             throw new \InvalidArgumentException(sprintf('Unknown scheme [%s]', $url->scheme));
     }
