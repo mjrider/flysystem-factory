@@ -60,8 +60,11 @@ function cache($cache, Filesystem $flysystem)
     $cachestore = null;
     switch ($url->scheme) {
         case 'phpredis':
+            break;
         case 'predis':
-            //TODO: implement
+        case 'predis-unix':
+        case 'predis-tcp':
+            $cachestore = CacheStore\Predis::create($url);
             break;
         case 'memory':
             $cachestore = CacheStore\Memory::create($url);
