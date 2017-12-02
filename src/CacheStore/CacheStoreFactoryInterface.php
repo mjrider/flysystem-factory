@@ -2,7 +2,7 @@
 namespace MJRider\FlysystemFactory\CacheStore;
 
 /**
- * Interface defining the interface for AdapterFactory's
+ * Interface defining the interface for CacheStore factories
  */
 interface CacheStoreFactoryInterface
 {

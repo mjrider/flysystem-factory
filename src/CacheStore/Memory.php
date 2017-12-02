@@ -4,7 +4,7 @@ namespace MJRider\FlysystemFactory\CacheStore;
 use League\Flysystem\Cached\Storage\Memory as CS;
 
 /**
- * Static factory class for creating a null Adapter
+ * Static factory class for creating an Memory cache storage instance
  */
 class Memory implements CacheStoreFactoryInterface
 {

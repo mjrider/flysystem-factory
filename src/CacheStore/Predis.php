@@ -4,7 +4,7 @@ namespace MJRider\FlysystemFactory\CacheStore;
 use League\Flysystem\Cached\Storage\Predis as CS;
 
 /**
- * Static factory class for creating a null Adapter
+ * Static factory class for for creating an Predis cache storage instance
  */
 class Predis implements CacheStoreFactoryInterface
 {
