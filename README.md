@@ -33,7 +33,19 @@ Or, if you prefer, you can add the following line to your `composer.json` file:
 }
 ```
 
-TODO: example
+Various backends require additional composer packages. Due to the fact that some are mutual exclusive they are not not a dependency for this package. Please install them conform your own needs
+
+Adapters:
+* S3: `league/flysystem-aws-s3-v3`
+* B2: `mhetreramesh/flysystem-backblaze`
+* S3v2: `league/flysystem-aws-s3-v2`
+
+Caching:
+* Predis: `predis/predis`
+
+
+## Examples
+Examples are listed in de [examples.md]
 
 ## Upgrading
 
