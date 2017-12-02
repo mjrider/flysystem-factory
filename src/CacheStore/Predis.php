@@ -15,7 +15,6 @@ class Predis implements CacheStoreFactoryInterface
     {
         $expire = null;
         $cachekey = 'flysystem';
-        $client = null;
 
         if (isset($url->query->cachekey)) {
             $cachekey = $url->query->cachekey;
