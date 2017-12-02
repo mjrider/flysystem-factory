@@ -71,6 +71,8 @@ function cache($cache, Filesystem $flysystem)
             break;
         case 'stash':
         case 'memcached':
+            $cachestore = CacheStore\Memcached::create($url);
+            break;
         default:
     }
     if (isset($cachestore)) {

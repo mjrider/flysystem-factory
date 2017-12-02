@@ -42,7 +42,7 @@ Adapters:
 
 Caching:
 * Predis: `predis/predis`
-
+* Memcached: `ext-memcached`
 
 ## Examples
 Examples are listed in de [examples.md]

@@ -29,6 +29,7 @@ matrix:
 before_install:
   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - wget https://scrutinizer-ci.com/ocular.phar -O ~/.ocular/ocular.phar
+  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 install:
   - sudo apt-get install libxml2-utils
