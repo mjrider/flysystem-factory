@@ -44,8 +44,15 @@ Caching:
 * Predis: `predis/predis`
 * Memcached: `ext-memcached`
 
-## Examples
-Examples are listed in de [examples.md]
+the syntax for the url follows the following scheme
+adapter://user:pass@[host|region]/sub/folder?extraparam=foo
+
+for the full list of supported options per adapter see the examples
+
+### Examples
+Examples are listed in de [examples.md] 
+
+[examples.md]: https://github.com/mjrider/flysystem-factory/blob/master/examples.md
 
 ## Upgrading
 
