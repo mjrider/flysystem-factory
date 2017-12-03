@@ -25,7 +25,8 @@
       "league/flysystem-aws-s3-v3" : "^1.0",
       "mhetreramesh/flysystem-backblaze" : "^1.0",
       "dealerdirect/phpcodesniffer-composer-installer" : "^0.4.2",
-      "predis/predis": "^1.1"
+      "predis/predis": "^1.1",
+      "league/flysystem-rackspace": "^1.0"
    },
    "suggest": {
       "league/flysystem-aws-s3-v3" : "For S3 support",

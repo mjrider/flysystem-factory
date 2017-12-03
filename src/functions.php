@@ -36,6 +36,9 @@ function create($endpoint)
         case 'null':
             $adapter = Adapter\NullAdapter::create($url);
             break;
+        case 'rackspace':
+            $adapter = Adapter\Rackspace::create($url);
+            break;
         default:
             throw new \InvalidArgumentException(sprintf('Unknown scheme [%s]', $url->scheme));
     }
