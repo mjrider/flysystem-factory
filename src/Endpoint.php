@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory;
 
 trait Endpoint
@@ -18,10 +19,13 @@ trait Endpoint
         if (strpos($endpoint, '://') === false && strpos('//', $endpoint) !== 0) {
             $endpoint = '//'.$endpoint;
         }
+
         $url = \arc\url::url($endpoint);
+
         if ($url->scheme == '') {
             $url->scheme = 'https';
         }
+
         return (string)$url;
     }
 }

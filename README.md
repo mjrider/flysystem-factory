@@ -21,81 +21,68 @@ This is a factory package to provide for an easy to use configuration and api fo
 ## Usage
 
 You can require the bundle:
+
 ```
 composer require mjrider/flysystem-factory
-```
-
-Or, if you prefer, you can add the following line to your `composer.json` file:
-
-```json
-"require": {
-   "mjrider/flysystem-factory": "^0.1"
-}
 ```
 
 Various backends require additional composer packages. Due to the fact that some are mutual exclusive they are not not a dependency for this package. Please install them conform your own needs
 
 Adapters:
-* S3: `league/flysystem-aws-s3-v3`
-* B2: `mhetreramesh/flysystem-backblaze`
-* S3v2: `league/flysystem-aws-s3-v2`
+
+- B2: `mhetreramesh/flysystem-backblaze`
+- S3: `league/flysystem-aws-s3-v3`
+- S3v2: `league/flysystem-aws-s3-v2`
 
 Caching:
-* Predis: `predis/predis`
-* Memcached: `ext-memcached`
 
-the syntax for the url follows the following scheme
-adapter://user:pass@[host|region]/sub/folder?extraparam=foo
+- Memcached: `ext-memcached`
+- Predis: `predis/predis`
 
-for the full list of supported options per adapter see the examples
+The syntax for the url follows the following scheme
+`adapter://user:pass@[host|region]/sub/folder?extraparam=foo`
+
+For the full list of supported options per adapter see [the examples][examples-page].
 
 ### Examples
-Examples are listed in de [examples.md] 
 
-[examples.md]: https://github.com/mjrider/flysystem-factory/blob/master/examples.md
+Examples are listed in de [examples.md][examples-page].
+
 
 ## Upgrading
 
-From time to time there will be breaking change. These will be documented in [UPGRADING.md]. 
+From time to time there will be breaking change. These will be documented in 
+[UPGRADING.md][upgrading-page]. 
 
-It is highly recommended to check what has changed before upgrading to a new minor or major release.
+It is highly recommended to check what has changed before upgrading to a new 
+minor or major release.
  
-[UPGRADING.md]: https://github.com/mjrider/flysystem-factory/blob/master/UPGRADING.md
 
 ### Enforcement
+
 The `master` branch is protected so that _at least_ one other developer approves
  by reviewing the change.
 
-For more information about required reviews for pull requests, please check the official GitHub documentation about
-[this subject].
+For more information about required reviews for pull requests, please check [the 
+official GitHub documentation][github-pull-requests].
 
-[this subject]: https://help.github.com/articles/about-required-reviews-for-pull-requests/
+
+## Development
+
+The code is accompanied by tests. These can be run using:
+
+    ./vendor/bin/phpunit
 
 ## Authors & Contributors
 
-For a full list off all author and/or contributors, please check the [contributors page].
-
-[contributors page]: https://github.com/mjrider/flysystem-factory/graphs/contributors
+For a full list off all author and/or contributors, please check the [contributors page][contributors-page].
 
 ## License
-MIT License
 
-Copyright (c) 2017 Robbert Müller
+The code in this repository has been licensed under an [MIT License][license-page].
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+[contributors-page]: https://github.com/mjrider/flysystem-factory/graphs/contributors
+[examples-page]: https://github.com/mjrider/flysystem-factory/blob/master/examples.md
+[github-pull-requests]: https://help.github.com/articles/about-required-reviews-for-pull-requests/
+[license-page]: https://github.com/mjrider/flysystem-factory/blob/master/LICENSE
+[upgrading-page]: https://github.com/mjrider/flysystem-factory/blob/master/UPGRADING.md

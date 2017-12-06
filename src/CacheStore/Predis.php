@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory\CacheStore;
 
 use League\Flysystem\Cached\Storage\Predis as CS;
@@ -25,6 +26,7 @@ class Predis implements CacheStoreFactoryInterface
             $expire = $url->query->expire;
             unset($url->query->expire);
         }
+
         if ($url->scheme == 'predis') {
             $url->scheme = 'tcp';
         }
@@ -32,8 +34,8 @@ class Predis implements CacheStoreFactoryInterface
         if ($url->scheme == 'predis-tcp' || $url->scheme == 'predis-unix') {
             $url->scheme = substr($url->scheme, 7);
         }
+
         $client = new \Predis\Client((string) $url);
-        
 
         $adapter = new CS($client, $cachekey, $expire);
         return $adapter;

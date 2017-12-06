@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory\Adapter;
 
 use OpenCloud\OpenStack;
@@ -11,6 +12,7 @@ use \MJRider\FlysystemFactory\Endpoint;
 class Rackspace implements AdapterFactoryInterface
 {
     use Endpoint;
+
     /**
      * @inheritDoc
      */
@@ -23,6 +25,7 @@ class Rackspace implements AdapterFactoryInterface
             $auth = urldecode($url->query->authendpoint);
             unset($url->query->authendpoint);
         }
+
         if (isset($url->query->zone)) {
             $zone = urldecode($url->query->zone);
             unset($url->query->zone);

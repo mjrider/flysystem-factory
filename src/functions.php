@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory;
 
 use League\Flysystem\Filesystem;
@@ -42,9 +43,11 @@ function create($endpoint)
         default:
             throw new \InvalidArgumentException(sprintf('Unknown scheme [%s]', $url->scheme));
     }
+
     if (!is_null($adapter)) {
         $filesystem = new Filesystem($adapter);
     }
+
     return $filesystem;
 }
 
@@ -79,11 +82,13 @@ function cache($cache, Filesystem $flysystem)
             break;
         default:
     }
+
     if (isset($cachestore)) {
         // Decorate the filesystem with a cacheadapter
         $adapter = $flysystem->getAdapter();
         $cachedAdapter = new FCA($adapter, $cachestore);
         $flysystem = new Filesystem($cachedAdapter);
     }
+
     return $flysystem;
 }
