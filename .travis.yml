@@ -3,7 +3,7 @@ language: php
 sudo: required
 env:
   global:
-    - TEST_S3_LOCATION='s3://TRAVISACCESSPHPUNIT:wJalrXUtnFEMI%2FSECRET%2FTRAVISPHPUNIT@us-east-1/?endpoint=http%3A%2F%2F127.0.0.1%3A9999&use_path_style_endpoint=1'
+    - TEST_S3_LOCATION='//TRAVISACCESSPHPUNIT:wJalrXUtnFEMI%2FSECRET%2FTRAVISPHPUNIT@us-east-1/?endpoint=http%3A%2F%2F127.0.0.1%3A9999&use_path_style_endpoint=1'
 
 services:
   - docker
