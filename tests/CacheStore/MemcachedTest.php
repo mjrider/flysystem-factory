@@ -5,6 +5,9 @@ namespace MJRider\FlysystemFactory\CacheStore;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
+/**
+ * @requires extension memcache
+ */
 class MemcachedTest extends TestCase
 {
     protected $root = '';
