@@ -22,8 +22,10 @@ php:
   - 7.1
   - 7.0
   - 5.6
+  - 5.4
 
 before_install:
+  - env
   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - wget https://scrutinizer-ci.com/ocular.phar -O ~/.ocular/ocular.phar
   - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -33,7 +35,7 @@ install:
   - curl https://bootstrap.pypa.io/get-pip.py >> ~/get-pip.py
   - sudo python ~/get-pip.py
   - sudo pip install yamllint
-  - composer global require "dealerdirect/qa-tools:*"
+  - 'if [[ ${TRAVIS_PHP_VERSION} != "5.4" ]] ; then composer global require "dealerdirect/qa-tools:*" ; fi'
   - "docker run -p 9999:9999 --name minio --rm \
      -e 'MINIO_ACCESS_KEY=TRAVISACCESSPHPUNIT' \
      -e 'MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/TRAVISKEYPHPUNIT' \
@@ -41,20 +43,31 @@ install:
 
 script:
   - composer validate
+  - >
+    if [[ ${TRAVIS_PHP_VERSION} == "5.4" ]] ;  then
+    composer remove  --dev --no-update --no-interaction league/flysystem-aws-s3-v3 ;
+    composer remove  --dev --no-update --no-interaction mhetreramesh/flysystem-backblaze ;
+    composer require --dev --no-update --no-interaction league/flysystem-aws-s3-v2 ;
+    fi
   - composer install -o --prefer-dist --no-scripts
   - >
+    if [[ -e ~/.composer/vendor/bin/jsonlint ]] ; then
     find . -type f -name "*.json" -not -path "./vendor/*" -print0 |
-    xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -c -q
+    xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -c -q ;
+    fi
   - >
     find . -type f -name "*.yml" -not -path "./vendor/*" -print0 |
     xargs -0 --no-run-if-empty -n1 yamllint
   - >
     find . -type f -name "*.xml" -not -path "./vendor/*" -print0 |
     xargs -0 --no-run-if-empty -n1 xmllint --noout --encode utf-8
-  - ~/.composer/vendor/bin/parallel-lint ./src
-  - ~/.composer/vendor/bin/phpcs -p -n ./src
-  - ~/.composer/vendor/bin/security-checker -n security:check --end-point=http://security.sensiolabs.org/check_lock
+  - 'if [[ -e ~/.composer/vendor/bin/parallel-lint ]] ; then ~/.composer/vendor/bin/parallel-lint ./src ; fi'
+  - 'if [[ -e ~/.composer/vendor/bin/phpcs ]] ; then ~/.composer/vendor/bin/phpcs -p -n ./src ; fi'
+  - 'if [[ -e ~/.composer/vendor/bin/security-checker ]] ; then ~/.composer/vendor/bin/security-checker -n security:check --end-point=http://security.sensiolabs.org/check_lock ; fi'
   - php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit
 
 after_script:
-  - php ~/.ocular/ocular.phar code-coverage:upload --format=php-clover coverage.xml -vvv
+  - >
+    if [[ ${TRAVIS_PHP_VERSION} == "5.4" || ${TRAVIS_PHP_VERSION} == "7.2" ]] ; then
+    php ~/.ocular/ocular.phar code-coverage:upload --format=php-clover coverage.xml -vvv ;
+    fi
