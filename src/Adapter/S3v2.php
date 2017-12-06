@@ -5,9 +5,11 @@ use \arc\url as url;
 use \arc\path as path;
 use \Aws\S3\S3Client;
 use \League\Flysystem\AwsS3v2\AwsS3Adapter;
+use \MJRider\FlysystemFactory\Endpoint;
 
 class S3v2 implements AdapterFactoryInterface
 {
+    use Endpoint;
     /**
      * @inheritDoc
      */
@@ -23,7 +25,7 @@ class S3v2 implements AdapterFactoryInterface
             ],
         ];
         if (isset($url->query->endpoint)) {
-            $args[ 'base_url' ] = urldecode($url->query->endpoint);
+            $args[ 'base_url' ] = self::endpointToURL(urldecode($url->query->endpoint));
         }
         $bucket  = \arc\path::head($url->path);
         $subpath = \arc\path::tail($url->path);

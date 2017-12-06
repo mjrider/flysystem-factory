@@ -3,12 +3,14 @@ namespace MJRider\FlysystemFactory\Adapter;
 
 use OpenCloud\OpenStack;
 use League\Flysystem\Rackspace\RackspaceAdapter;
+use \MJRider\FlysystemFactory\Endpoint;
 
 /**
  * Static factory class for creating an rackspace Adapter
  */
 class Rackspace implements AdapterFactoryInterface
 {
+    use Endpoint;
     /**
      * @inheritDoc
      */
@@ -26,20 +28,7 @@ class Rackspace implements AdapterFactoryInterface
             unset($url->query->zone);
         }
 
-        /* Rewriting endpoint from minimal scheme to full url
-		 * example.com => https://example.com/
-		 * example.com/v1  => https://example.com/v1
-		 * example.com:1443/v1 => https://example.com:1443/v1
-		 * http://example.com:8080/v1 => http://example.com:8080/v1
-		 */
-        $authUrl = \arc\url::url($auth);
-        if ($authUrl->host == '') {
-               $authUrl = \arc\url::url('//'.$auth);
-        }
-        if ($authUrl->scheme == '') {
-               $authUrl->scheme = 'https';
-        }
-        $auth = (string)$authUrl;
+        $auth = self::endpointToURL($auth);
 
         $args = [
             'username' => urldecode($url->user),
