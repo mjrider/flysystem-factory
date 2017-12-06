@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
 /**
- * @requires extension memcache
+ * @requires extension memcached
  */
 class MemcachedTest extends TestCase
 {
