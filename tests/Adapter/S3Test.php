@@ -1,5 +1,7 @@
 <?php
 
+namespace MJRider\FlysystemFactory\Adapter;
+
 use PHPUnit\Framework\TestCase;
 
 class S3Test extends TestCase

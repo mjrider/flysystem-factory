@@ -1,5 +1,7 @@
 <?php
 
+namespace MJRider\FlysystemFactory\CacheStore;
+
 use PHPUnit\Framework\TestCase;
 
 class MemoryTest extends TestCase

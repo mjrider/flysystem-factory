@@ -1,6 +1,9 @@
 <?php
 
+namespace MJRider\FlysystemFactory\CacheStore;
+
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class MemcachedTest extends TestCase
 {

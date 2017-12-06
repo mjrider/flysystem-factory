@@ -32,6 +32,11 @@
             "MJRider\\FlysystemFactory\\" : "src/"
         }
     },
+    "autoload-dev" : {
+        "psr-4" : {
+            "MJRider\\FlysystemFactory\\" : "tests/"
+        }
+    },
     "suggest": {
         "ext-memcached": "memcached cache support",
         "ext-phpredis": "phpredis cache support",

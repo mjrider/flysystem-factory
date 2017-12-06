@@ -1,10 +1,12 @@
 <?php
 
+namespace MJRider\FlysystemFactory;
+
 use PHPUnit\Framework\TestCase;
 
 class EndpointTest extends TestCase
 {
-    use \MJRider\FlysystemFactory\Endpoint;
+    use Endpoint;
 
     /**
      * @dataProvider endpointProvider
