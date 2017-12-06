@@ -16,23 +16,27 @@ the only settings are in the url formated settings for endpoint and cache
 ## Adapters
 ### S3
 Aws:
-s3://accesstoken:secretkey@region/bucketname
+`s3://accesstoken:secretkey@region/bucketname`
 
 Minio:
-s3://acccesstoken:secretkey@fakeregion/bucketname?endpoint=http://locationofminio:port
+`s3://acccesstoken:secretkey@fakeregion/bucketname?endpoint=http://locationofminio:port`
 
 ### S3v2
 Aws:
-s3://accesstoken:secretkey@region/bucketname
+`s3://accesstoken:secretkey@region/bucketname`
 
 Minio:
-s3://acccesstoken:secretkey@fakeregion/bucketname?endpoint=http://locationofminio:port
+`s3://acccesstoken:secretkey@fakeregion/bucketname?endpoint=http://locationofminio:port`
 
 ### B2
-`b2://exampleuser:examplekey@bucket/`
+`b2://exampleuser:examplekey@bucket/`  
 no futher settings are available
 
-## CacheStore
+### Local
+`local:/path/to/folder`
+
+
+## CacheStores
 
 ### Memcached
 `memcached://host:port/`  
@@ -43,7 +47,7 @@ expire: ttl of the cache
 cachekey: under what key to store the cache
 
 ### Memory
-`memory:`
+`memory:`  
 No futher settings
 
 ### Predis
