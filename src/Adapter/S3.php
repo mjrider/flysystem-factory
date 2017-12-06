@@ -19,8 +19,8 @@ class S3 implements AdapterFactoryInterface
                 'secret' => urldecode($url->pass)
             ],
             'region' => $url->host,
-                'version' => 'latest',
-                'use_path_style_endpoint' => (bool) $url->query->use_path_style_endpoint,
+            'version' => 'latest',
+            'use_path_style_endpoint' => (bool) $url->query->use_path_style_endpoint,
         ];
         if (isset($url->query->endpoint)) {
             $args[ 'endpoint' ] = urldecode($url->query->endpoint);
