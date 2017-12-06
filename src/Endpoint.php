@@ -1,9 +1,10 @@
 <?php
 namespace MJRider\FlysystemFactory;
 
-trait endPoint {
+trait Endpoint
+{
     /**
-     * @param $endpoint translate and endpoint formated string to a URL
+     * @param $endpoint string endpoint formated string
      *
      * @return string;
      * Rewriting endpoint from minimal scheme to full url
@@ -12,8 +13,9 @@ trait endPoint {
      * example.com:1443/v1 => https://example.com:1443/v1
      * http://example.com:8080/v1 => http://example.com:8080/v1
      */
-    public static function endpointToURL($endpoint) {
-        if (strpos($endpoint, '://') === false && strpos('//', $endpoint) !== 0 ) {
+    public static function endpointToURL($endpoint)
+    {
+        if (strpos($endpoint, '://') === false && strpos('//', $endpoint) !== 0) {
             $endpoint = '//'.$endpoint;
         }
         $url = \arc\url::url($endpoint);
