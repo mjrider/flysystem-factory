@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory\CacheStore;
 
 use League\Flysystem\Cached\Storage\Memory as CS;

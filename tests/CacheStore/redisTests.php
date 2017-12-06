@@ -1,45 +1,50 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class PredisTest extends TestCase {
-	protected $root = '';
+class PredisTest extends TestCase
+{
+    protected $root = '';
 
-	public function setup()
-	{
-		$this->root = 'null:/';
-		// FIXME: getenv redis endpoint instead of hardcoding a empty url
-	}
+    public function setup()
+    {
+        $this->root = 'null:/';
+        // FIXME: getenv redis endpoint instead of hardcoding a empty url
+    }
 
-	public function testPredis() {
-		$filesystem = \MJRider\FlysystemFactory\create($this->root);
-		$filesystem = \MJRider\FlysystemFactory\cache('predis:',$filesystem);
-		$this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
-		$this->assertInstanceOf('\League\Flysystem\Cached\CachedAdapter', $filesystem->getAdapter());
-		$this->assertInstanceOf('\League\Flysystem\Cached\Storage\Predis', $filesystem->getAdapter()->getCache());
-	}
+    public function testPredis()
+    {
+        $filesystem = \MJRider\FlysystemFactory\create($this->root);
+        $filesystem = \MJRider\FlysystemFactory\cache('predis:', $filesystem);
+        $this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
+        $this->assertInstanceOf('\League\Flysystem\Cached\CachedAdapter', $filesystem->getAdapter());
+        $this->assertInstanceOf('\League\Flysystem\Cached\Storage\Predis', $filesystem->getAdapter()->getCache());
+    }
 
-	public function testPredisTcp() {
-		$filesystem = \MJRider\FlysystemFactory\create($this->root);
-		$filesystem = \MJRider\FlysystemFactory\cache('predis-tcp:',$filesystem);
-		$this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
-		$this->assertInstanceOf('\League\Flysystem\Cached\CachedAdapter', $filesystem->getAdapter());
-		$this->assertInstanceOf('\League\Flysystem\Cached\Storage\Predis', $filesystem->getAdapter()->getCache());
-	}
+    public function testPredisTcp()
+    {
+        $filesystem = \MJRider\FlysystemFactory\create($this->root);
+        $filesystem = \MJRider\FlysystemFactory\cache('predis-tcp:', $filesystem);
+        $this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
+        $this->assertInstanceOf('\League\Flysystem\Cached\CachedAdapter', $filesystem->getAdapter());
+        $this->assertInstanceOf('\League\Flysystem\Cached\Storage\Predis', $filesystem->getAdapter()->getCache());
+    }
 
-	public function testPredisProperties() {
-		$filesystem = \MJRider\FlysystemFactory\create($this->root);
-		$filesystem = \MJRider\FlysystemFactory\cache('predis-tcp:?cachekey=foobar&expire=3767',$filesystem);
-		$cache = $filesystem->getAdapter()->getCache();
+    public function testPredisProperties()
+    {
+        $filesystem = \MJRider\FlysystemFactory\create($this->root);
+        $filesystem = \MJRider\FlysystemFactory\cache('predis-tcp:?cachekey=foobar&expire=3767', $filesystem);
+        $cache = $filesystem->getAdapter()->getCache();
 
-		$reflCache = new ReflectionClass($cache);
+        $reflCache = new ReflectionClass($cache);
 
-		$reflkey = $reflCache->getProperty('key');
-		$reflkey->setAccessible(true);
+        $reflkey = $reflCache->getProperty('key');
+        $reflkey->setAccessible(true);
 
-		$reflexpire = $reflCache->getProperty('expire');
-		$reflexpire->setAccessible(true);
+        $reflexpire = $reflCache->getProperty('expire');
+        $reflexpire->setAccessible(true);
 
-		$this->assertEquals('foobar',$reflkey->getValue($cache));
-		$this->assertEquals(3767,$reflexpire->getValue($cache));
-	}
+        $this->assertEquals('foobar', $reflkey->getValue($cache));
+        $this->assertEquals(3767, $reflexpire->getValue($cache));
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory\Adapter;
 
 use \arc\url as url;
@@ -10,6 +11,7 @@ use \MJRider\FlysystemFactory\Endpoint;
 class S3v2 implements AdapterFactoryInterface
 {
     use Endpoint;
+
     /**
      * @inheritDoc
      */
@@ -24,9 +26,11 @@ class S3v2 implements AdapterFactoryInterface
                 'secret' => urldecode($url->pass)
             ],
         ];
+
         if (isset($url->query->endpoint)) {
             $args[ 'base_url' ] = self::endpointToURL(urldecode($url->query->endpoint));
         }
+
         $bucket  = \arc\path::head($url->path);
         $subpath = \arc\path::tail($url->path);
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory\Adapter;
 
 use League\Flysystem\Adapter\NullAdapter as FL;

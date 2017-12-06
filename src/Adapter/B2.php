@@ -1,4 +1,5 @@
 <?php
+
 namespace MJRider\FlysystemFactory\Adapter;
 
 use Mhetreramesh\Flysystem\BackblazeAdapter;
@@ -15,7 +16,9 @@ class B2 implements AdapterFactoryInterface
     public static function create($url)
     {
         $client = new Client($url->user, $url->pass);
+
         $adapter = new BackblazeAdapter($client, $url->host);
+
         return $adapter;
     }
 }
