@@ -16,16 +16,13 @@ trait Endpoint
      */
     public static function endpointToURL($endpoint)
     {
-        if (strpos($endpoint, '://') === false && strpos('//', $endpoint) !== 0) {
+        if (strpos($endpoint, '//') === 0) {
+            $endpoint = 'https:'.$endpoint;
+        } else if (strpos($endpoint, '://') === false) {
             $endpoint = 'https://'.$endpoint;
         }
 
         $url = \arc\url::url($endpoint);
-
-        if ($url->scheme == '') {
-            $url->scheme = 'https';
-        }
-
         return (string)$url;
     }
 }
