@@ -17,7 +17,7 @@ trait Endpoint
     public static function endpointToURL($endpoint)
     {
         if (strpos($endpoint, '://') === false && strpos('//', $endpoint) !== 0) {
-            $endpoint = '//'.$endpoint;
+            $endpoint = 'https://'.$endpoint;
         }
 
         $url = \arc\url::url($endpoint);
