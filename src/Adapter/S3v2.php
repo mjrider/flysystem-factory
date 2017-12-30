@@ -10,8 +10,8 @@ class S3v2 extends S3
     {
         // modify arguments for use with older S3Client version
         $args = parent::buildArgs($url);
-        $args['key'] = $args['credentials']['key'];
-        $args['secret'] = $args['credentials']['secret'];
+        $args[ 'key' ] = $args[ 'credentials' ][ 'key' ];
+        $args[ 'secret' ] = $args[ 'credentials' ][ 'secret' ];
 
         return $args;
     }
