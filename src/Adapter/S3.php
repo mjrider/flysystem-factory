@@ -10,12 +10,10 @@ use \MJRider\FlysystemFactory\Endpoint;
 
 class S3 implements AdapterFactoryInterface
 {
+
     use Endpoint;
 
-    /**
-     * @inheritDoc
-     */
-    public static function create($url)
+    protected static function buildArgs($url)
     {
         $args = [
             'credentials' => [
@@ -31,12 +29,24 @@ class S3 implements AdapterFactoryInterface
             $args[ 'endpoint' ] = self::endpointToURL(urldecode($url->query->endpoint));
         }
 
-        $bucket  = (string) \arc\path::head($url->path);
-        $subpath = (string) \arc\path::tail($url->path);
+        return $args;
+    }
 
+    protected static function buildAdapter($client, $bucket, $subpath)
+    {
+        return new AwsS3Adapter($client, $bucket, $subpath);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function create($url)
+    {
+        $args = static::buildArgs($url);
         $client = S3Client::factory($args);
 
-        $adapter = new AwsS3Adapter($client, $bucket, $subpath);
-        return $adapter;
+        $bucket  = (string) \arc\path::head($url->path);
+        $subpath = (string) \arc\path::tail($url->path);
+        return static::buildAdapter($client, $bucket, $subpath);
     }
 }

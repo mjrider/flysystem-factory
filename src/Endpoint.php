@@ -23,6 +23,6 @@ trait Endpoint
         }
 
         $url = \arc\url::url($endpoint);
-        return (string)$url;
+        return (string) $url;
     }
 }

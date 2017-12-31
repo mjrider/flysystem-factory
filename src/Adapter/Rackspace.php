@@ -39,7 +39,7 @@ class Rackspace implements AdapterFactoryInterface
             'tenantId' => urldecode($url->host),
         ];
 
-        $options = (array)$url->query;
+        $options = (array) $url->query;
 
         $container = trim(\arc\path::head($url->path), '/');
         $prefix = ltrim(\arc\path::tail($url->path), '/');
