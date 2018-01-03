@@ -22,8 +22,12 @@ class S3 implements AdapterFactoryInterface
             ],
             'region' => $url->host,
             'version' => 'latest',
-            'use_path_style_endpoint' => (bool) $url->query->use_path_style_endpoint,
+            'use_path_style_endpoint' => false,
         ];
+
+        if (isset($url->query->use_path_style_endpoint)) {
+            $args[ 'use_path_style_endpoint' ] = (bool)$url->query->use_path_style_endpoint;
+        }
 
         if (isset($url->query->endpoint)) {
             $args[ 'endpoint' ] = self::endpointToURL(urldecode($url->query->endpoint));
