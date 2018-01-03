@@ -53,7 +53,7 @@ script:
   - >
     if [[ -e ~/.composer/vendor/bin/jsonlint ]] ; then
     find . -type f -name "*.json" -not -path "./vendor/*" -print0 |
-    xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -c -q ;
+    xargs -0 --no-run-if-empty -n1 ~/.composer/vendor/bin/jsonlint -q ;
     fi
   - >
     find . -type f -name "*.yml" -not -path "./vendor/*" -print0 |
