@@ -41,7 +41,7 @@ install:
      -e 'MINIO_ACCESS_KEY=TRAVISACCESSPHPUNIT' \
      -e 'MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/TRAVISKEYPHPUNIT' \
      --detach minio/minio server /data"
-  - "docker run --rm -ti -p 21:21 -p 30000-30009:30000-30009 -e 'PUBLICHOST=localhost' jack12816/ftpd_test"
+  - "docker run -d -p 21:21 -p 30000-30009:30000-30009 -e 'PUBLICHOST=localhost' jack12816/ftpd_test"
 
 script:
   - composer validate
