@@ -4,6 +4,7 @@ sudo: required
 env:
   global:
     - TEST_S3_LOCATION='//TRAVISACCESSPHPUNIT:wJalrXUtnFEMI%2FSECRET%2FTRAVISPHPUNIT@us-east-1/?endpoint=http%3A%2F%2F127.0.0.1%3A9999&use_path_style_endpoint=1'
+    - TEST_FTP_LOCATION='ftp://test:test@localhost'
 
 services:
   - docker
@@ -40,6 +41,7 @@ install:
      -e 'MINIO_ACCESS_KEY=TRAVISACCESSPHPUNIT' \
      -e 'MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/TRAVISKEYPHPUNIT' \
      --detach minio/minio server /data"
+  - "docker run --rm -ti -p 21:21 -p 30000-30009:30000-30009 -e 'PUBLICHOST=localhost' jack12816/ftpd_test"
 
 script:
   - composer validate

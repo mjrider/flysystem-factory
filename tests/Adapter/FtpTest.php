@@ -13,11 +13,13 @@ class FtpTest extends TestCase
 
     public function setup()
     {
-        $this->root = 'ftp:'.__DIR__ . '/files/';
-        is_dir(__DIR__ . '/files/') || mkdir(__DIR__ . '/files/');
+        $this->root = getenv('TEST_FTP_LOCATION');
+        if ($this->root === false) {
+            $this->markTestSkipped('no ftp endpoint available, test skipped');
+        }
     }
 
-    public function testLocal()
+    public function testFtp()
     {
         $filesystem = \MJRider\FlysystemFactory\create($this->root);
         $this->assertInstanceOf('\League\Flysystem\Filesystem', $filesystem);
