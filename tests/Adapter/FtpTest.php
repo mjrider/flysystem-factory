@@ -17,6 +17,9 @@ class FtpTest extends TestCase
         if ($this->root === false) {
             $this->markTestSkipped('no ftp endpoint available, test skipped');
         }
+        if (defined('HHVM_VERSION')) {
+            $this->markTestSkipped('HHVM ftp not supported ');
+        }
     }
 
     public function testFtp()
