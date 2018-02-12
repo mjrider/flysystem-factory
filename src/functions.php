@@ -30,6 +30,9 @@ function create($endpoint)
         case 'b2':
             $adapter = Adapter\B2::create($url);
             break;
+        case 'ftp':
+            $adapter = Adapter\Ftp::create($url);
+            break;
         case 'file':
         case 'local':
             $adapter = Adapter\Local::create($url);
