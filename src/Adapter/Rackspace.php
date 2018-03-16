@@ -41,8 +41,9 @@ class Rackspace implements AdapterFactoryInterface
 
         $options = (array) $url->query;
 
-        $container = trim(\arc\path::head($url->path), '/');
-        $prefix = ltrim(\arc\path::tail($url->path), '/');
+        $path = (string) \arc\path::collapse($url->path);
+        $container = trim(\arc\path::head($path), '/');
+        $prefix = ltrim(\arc\path::tail($path), '/');
 
         $client = new OpenStack($auth, $args, $options);
         $store = $client->objectStoreService('swift', $zone);
