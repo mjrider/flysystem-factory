@@ -35,6 +35,8 @@ no futher settings are available
 ### Local
 `local:/path/to/folder`
 
+### FTP
+`ftp://user:pass@host:port/path/to/folder?ssl=false&passive=false&timeout=30`
 
 ## CacheStores
 
