@@ -49,7 +49,7 @@ class S3 implements AdapterFactoryInterface
         $args = static::buildArgs($url);
         $client = S3Client::factory($args);
 
-        $path = (string) \arc\path::collapse($url->path);
+        $path = \arc\path::collapse($url->path);
         $bucket  = (string) \arc\path::head($path);
         $subpath = (string) \arc\path::tail($path);
         return static::buildAdapter($client, $bucket, $subpath);

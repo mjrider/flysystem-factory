@@ -41,7 +41,7 @@ class Rackspace implements AdapterFactoryInterface
 
         $options = (array) $url->query;
 
-        $path = (string) \arc\path::collapse($url->path);
+        $path = \arc\path::collapse($url->path);
         $container = trim(\arc\path::head($path), '/');
         $prefix = ltrim(\arc\path::tail($path), '/');
 
