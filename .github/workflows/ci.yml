@@ -1,0 +1,48 @@
+---
+name: CI
+
+on: [push]
+
+jobs:
+  php-linter:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - uses: pipeline-components/php-linter@master
+  lint-remark:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check markdown
+        uses: pipeline-components/remark-lint@master
+  php-security-checker:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - uses: php-actions/composer@v4
+        with:
+          suggest: yes
+          dev: no
+          args: --profile --ignore-platform-reqs
+      - name: Check php composer for security issues
+        uses: pipeline-components/php-security-checker@master
+  php-codesniffer:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check php code for code issues
+        uses: pipeline-components/php-codesniffer@master
+  yamllint:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check yaml for issues
+        uses: pipeline-components/yamllint@master
+  lint-json:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Lint php
+        uses: "docker://pipelinecomponents/jsonlint:latest"
+        with:
+          args: "find . -not -path './.git/*' -name '*.json' -type f -exec jsonlint --quiet {} ;"
