@@ -24,7 +24,7 @@
         "mhetreramesh/flysystem-backblaze" : "1.1.4",
         "phpunit/phpunit": "~4.0 | ~5.0 | ~6.0",
         "predis/predis": "1.1.1",
-        "wimg/php-compatibility" : "9.1.1"
+        "wimg/php-compatibility" : "9.3.1"
     },
     "autoload" : {
         "files": ["src/functions.php"],
