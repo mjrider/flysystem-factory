@@ -1,51 +1,60 @@
 {
-    "name" : "mjrider/flysystem-factory",
-    "type": "library",
-    "description": "Simple factory library to create a flysystem instance from a url",
-    "keywords": ["flysystem", "filesystem", "filesystems", "files", "storage", "factory"],
-    "homepage": "https://github.com/mjrider/flysystem-factory",
-    "license" : "MIT",
-    "authors": [
-        {
-           "name": "Robbert Müller",
-           "role": "Developer"
-        }
-    ],
-    "require" : {
-        "php": "~5.4 | ~7.0",
-        "arc/web": "^1.1 || ^2.1",
-        "league/flysystem": "^1.0",
-        "league/flysystem-cached-adapter": "^1.0"
-    },
-    "require-dev" : {
-        "dealerdirect/phpcodesniffer-composer-installer" : "0.5.0",
-        "league/flysystem-aws-s3-v3" : "1.0.21",
-        "league/flysystem-rackspace": "1.0.5",
-        "mhetreramesh/flysystem-backblaze" : "1.1.4",
-        "phpunit/phpunit": "~4.0 | ~5.0 | ~6.0",
-        "predis/predis": "1.1.1",
-        "wimg/php-compatibility" : "9.1.1"
-    },
-    "autoload" : {
-        "files": ["src/functions.php"],
-        "psr-4" : {
-            "MJRider\\FlysystemFactory\\" : "src/"
-        }
-    },
-    "autoload-dev" : {
-        "psr-4" : {
-            "MJRider\\FlysystemFactory\\" : "tests/"
-        }
-    },
-    "suggest": {
-        "ext-memcached": "memcached cache support",
-        "ext-phpredis": "phpredis cache support",
-        "league/flysystem-aws-s3-v2" : "For S3 support for php 5.4",
-        "league/flysystem-aws-s3-v3" : "For S3 support",
-        "mhetreramesh/flysystem-backblaze" : "For Backblaze support",
-        "predis/predis": "predis cache support"
-    },
-    "config": {
-        "sort-packages": true
+  "name": "mjrider/flysystem-factory",
+  "type": "library",
+  "description": "Simple factory library to create a flysystem instance from a url",
+  "keywords": [
+    "flysystem",
+    "filesystem",
+    "filesystems",
+    "files",
+    "storage",
+    "factory"
+  ],
+  "homepage": "https://github.com/mjrider/flysystem-factory",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Robbert Müller",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": "~5.4 | ~7.0",
+    "arc/web": "^1.1 || ^2.1",
+    "league/flysystem": "^1.0",
+    "league/flysystem-cached-adapter": "^1.0"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
+    "league/flysystem-aws-s3-v3": "1.0.21",
+    "league/flysystem-rackspace": "1.0.5",
+    "mhetreramesh/flysystem-backblaze": "1.1.4",
+    "phpunit/phpunit": "~4.0 | ~5.0 | ~6.0",
+    "predis/predis": "1.1.1",
+    "phpcompatibility/php-compatibility": "9.1.1"
+  },
+  "autoload": {
+    "files": [
+      "src/functions.php"
+    ],
+    "psr-4": {
+      "MJRider\\FlysystemFactory\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MJRider\\FlysystemFactory\\": "tests/"
+    }
+  },
+  "suggest": {
+    "ext-memcached": "memcached cache support",
+    "ext-phpredis": "phpredis cache support",
+    "league/flysystem-aws-s3-v2": "For S3 support for php 5.4",
+    "league/flysystem-aws-s3-v3": "For S3 support",
+    "mhetreramesh/flysystem-backblaze": "For Backblaze support",
+    "predis/predis": "predis cache support"
+  },
+  "config": {
+    "sort-packages": true
+  }
 }
