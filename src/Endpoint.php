@@ -18,7 +18,7 @@ trait Endpoint
     {
         if (strpos($endpoint, '//') === 0) {
             $endpoint = 'https:'.$endpoint;
-        } else if (strpos($endpoint, '://') === false) {
+        } elseif (strpos($endpoint, '://') === false) {
             $endpoint = 'https://'.$endpoint;
         }
 
