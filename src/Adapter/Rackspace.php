@@ -4,7 +4,7 @@ namespace MJRider\FlysystemFactory\Adapter;
 
 use OpenCloud\OpenStack;
 use League\Flysystem\Rackspace\RackspaceAdapter;
-use \MJRider\FlysystemFactory\Endpoint;
+use MJRider\FlysystemFactory\Endpoint;
 
 /**
  * Static factory class for creating an rackspace Adapter

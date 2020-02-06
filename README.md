@@ -32,7 +32,6 @@ Adapters:
 
 - B2: `mhetreramesh/flysystem-backblaze`
 - S3: `league/flysystem-aws-s3-v3`
-- S3v2: `league/flysystem-aws-s3-v2`
 
 Caching:
 

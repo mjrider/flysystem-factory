@@ -19,7 +19,7 @@ cache:
 
 jobs:
   include:
-    - php: 7.3
+    - php: 7.4
       name: Linting
       stage: lint
       before_install:
@@ -45,17 +45,11 @@ jobs:
       after_script:
         - echo Dummy after script
     - stage: test
-      php: 7.4snapshot
-      allow_failures: true
+      php: 7.4
     - php: 7.3
     - php: 7.2
     - php: 7.1
     - php: 7.0
-    - php: 5.6
-    - php: 5.4
-      dist: trusty
-
-      fast_finish: true
 
 before_install:
   - env
@@ -64,10 +58,7 @@ before_install:
   - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 install:
-  - >
-    if [[ ${TRAVIS_PHP_VERSION} != '5.4' ]] ; then
-      composer global require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter sensiolabs/security-checker;
-    fi
+  - composer global require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter sensiolabs/security-checker;
   - "docker run -p 9999:9999 --name minio --rm \
     -e 'MINIO_ACCESS_KEY=TRAVISACCESSPHPUNIT' \
     -e 'MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/TRAVISKEYPHPUNIT' \
@@ -75,12 +66,6 @@ install:
   - "docker run -d -p 21:21 -p 30000-30009:30000-30009 -e 'PUBLICHOST=localhost' jack12816/ftpd_test"
 
 script:
-  - >
-    if [[ ${TRAVIS_PHP_VERSION} == "5.4" ]] ;  then
-      composer remove  --dev --no-update --no-interaction league/flysystem-aws-s3-v3 ;
-      composer remove  --dev --no-update --no-interaction mhetreramesh/flysystem-backblaze ;
-      composer require --dev --no-update --no-interaction league/flysystem-aws-s3-v2 ;
-    fi
   - composer install --prefer-dist
 
   - "if [[ -e ~/.composer/vendor/bin/parallel-lint ]] ; then ~/.composer/vendor/bin/parallel-lint ./src ; fi"
@@ -91,6 +76,6 @@ script:
 
 after_script:
   - >
-    if [[ ${TRAVIS_PHP_VERSION} == "5.4" || ${TRAVIS_PHP_VERSION} == "7.2" ]] ; then
+    if [[ ${TRAVIS_PHP_VERSION} == "7.0" || ${TRAVIS_PHP_VERSION} == "7.4" ]] ; then
     php ~/.ocular/ocular.phar code-coverage:upload --format=php-clover coverage.xml -vvv ;
     fi

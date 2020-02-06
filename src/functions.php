@@ -24,9 +24,6 @@ function create($endpoint)
         case 's3':
             $adapter = Adapter\S3::create($url);
             break;
-        case 's3v2':
-            $adapter = Adapter\S3v2::create($url);
-            break;
         case 'b2':
             $adapter = Adapter\B2::create($url);
             break;
@@ -42,6 +39,9 @@ function create($endpoint)
             break;
         case 'rackspace':
             $adapter = Adapter\Rackspace::create($url);
+            break;
+        case 'openstack':
+            $adapter = Adapter\OpenStack::create($url);
             break;
         default:
             throw new \InvalidArgumentException(sprintf('Unknown scheme [%s]', $url->scheme));

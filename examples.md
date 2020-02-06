@@ -21,13 +21,6 @@ Aws:
 Minio:
 `s3://acccesstoken:secretkey@fakeregion/bucketname?endpoint=http://locationofminio:port`
 
-### S3v2
-Aws:
-`s3://accesstoken:secretkey@region/bucketname`
-
-Minio:
-`s3://acccesstoken:secretkey@fakeregion/bucketname?endpoint=http://locationofminio:port`
-
 ### B2
 `b2://exampleuser:examplekey@bucket/`  
 no futher settings are available
