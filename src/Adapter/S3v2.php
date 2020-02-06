@@ -2,7 +2,7 @@
 
 namespace MJRider\FlysystemFactory\Adapter;
 
-use \League\Flysystem\AwsS3v2\AwsS3Adapter;
+use League\Flysystem\AwsS3v2\AwsS3Adapter;
 
 class S3v2 extends S3
 {
