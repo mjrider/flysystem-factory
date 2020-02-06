@@ -6,7 +6,7 @@ This is a factory package to provide for an easy to use configuration and api fo
 
 [![Latest Release Version](https://img.shields.io/github/release/mjrider/flysystem-factory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystem-factory)
 [![License](https://img.shields.io/github/license/mjrider/flysystem-factory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystem-factory)
-![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=flat-square)
+![Maintenance](https://img.shields.io/maintenance/yes/2020.svg?style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/mjrider/flysystem-factory.svg?style=flat-square)](https://packagist.org/packages/mjrider/flysystem-factory)
 
 **Code quality**
