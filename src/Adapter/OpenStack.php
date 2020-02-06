@@ -5,7 +5,6 @@ namespace MJRider\FlysystemFactory\Adapter;
 use OpenStack\OpenStack as OpenStackClient;
 use Nimbusoft\Flysystem\OpenStack\SwiftAdapter;
 use MJRider\FlysystemFactory\Endpoint;
-use Monolog\Logger;
 use GuzzleHttp\MessageFormatter;
 
 /**
@@ -34,15 +33,9 @@ class Openstack implements AdapterFactoryInterface
         }
 
         $auth = self::endpointToURL($auth);
-        $logger = new Logger('Logger');
-        $logger->pushHandler(new \Monolog\Handler\StreamHandler("php://stdout", 'debug'));
-
 
         $args = [
             'authUrl' => $auth,
-//            'debugLog' => true,
-//            'logger' => $logger,
-//            'messageFormatter' => new MessageFormatter(MessageFormatter::DEBUG),
             'user' => [
                 'name' => urldecode($url->user),
                 'password' => urldecode($url->pass),
