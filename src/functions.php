@@ -43,6 +43,9 @@ function create($endpoint)
         case 'rackspace':
             $adapter = Adapter\Rackspace::create($url);
             break;
+        case 'openstack':
+            $adapter = Adapter\OpenStack::create($url);
+            break;
         default:
             throw new \InvalidArgumentException(sprintf('Unknown scheme [%s]', $url->scheme));
     }
