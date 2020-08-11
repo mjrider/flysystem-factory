@@ -4,7 +4,7 @@ namespace MJRider\FlysystemFactory\Adapter;
 
 use PHPUnit\Framework\TestCase;
 
-class OpenStackTest extends TestCase
+class OpenstackTest extends TestCase
 {
     protected $root = '';
 
