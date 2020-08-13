@@ -10,7 +10,7 @@ use GuzzleHttp\MessageFormatter;
 /**
  * Static factory class for creating an rackspace Adapter
  */
-class Openstack implements AdapterFactoryInterface
+class OpenStack implements AdapterFactoryInterface
 {
     use Endpoint;
 
