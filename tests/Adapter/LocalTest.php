@@ -10,7 +10,7 @@ class LocalTest extends TestCase
 
     public function setup()
     {
-        $this->root = 'local:'.__DIR__ . '/files/';
+        $this->root = 'local:' . __DIR__ . '/files/';
         is_dir(__DIR__ . '/files/') || mkdir(__DIR__ . '/files/');
     }
 

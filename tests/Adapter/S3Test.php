@@ -14,14 +14,14 @@ class S3Test extends TestCase
     public function setup()
     {
         $this->root = getenv('TEST_S3_LOCATION');
-        if ( !class_exists('\League\Flysystem\AwsS3v3\AwsS3Adapter') ) {
+        if (!class_exists('\League\Flysystem\AwsS3v3\AwsS3Adapter')) {
             $this->markTestSkipped('AWSS3v3 not available, skipping test');
         }
         if ($this->root === false) {
             $this->markTestSkipped('no S3 endpoint available, test skipped');
         }
-        if( strpos($this->root,'//') === 0) {
-            $this->root = 's3:'.$this->root;
+        if (strpos($this->root, '//') === 0) {
+            $this->root = 's3:' . $this->root;
         }
     }
 
