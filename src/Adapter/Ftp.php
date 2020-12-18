@@ -33,7 +33,7 @@ class Ftp implements AdapterFactoryInterface
         if (isset($url->query->ssl)) {
             $args[ 'ssl' ] = (bool)$url->query->ssl;
         }
-        
+
         if (isset($url->query->timeout)) {
             $args[ 'timeout' ] = (int)$url->query->timeout;
         }
