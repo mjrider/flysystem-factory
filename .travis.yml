@@ -45,12 +45,14 @@ jobs:
       after_script:
         - echo Dummy after script
     - stage: test
-      php: 8.0
-    - php: 7.4
+      php: 7.4
     - php: 7.3
     - php: 7.2
     - php: 7.1
     - php: 7.0
+  allow_failures:
+    - stage: test
+      php: 8.0
 
 before_install:
   - env
@@ -73,7 +75,7 @@ script:
   - "if [[ -e ./vendor/bin/phpcs ]] ; then ./vendor/bin/phpcs -i ; fi"
   - "if [[ -e ./vendor/bin/phpcs ]] ; then ./vendor/bin/phpcs -s -p -n ./src ; fi"
   - "if [[ -e ~/.composer/vendor/bin/security-checker ]] ; then ~/.composer/vendor/bin/security-checker -n security:check --end-point=http://security.symfony.com/check_lock; fi"
-  - php ./vendor/bin/phpunit
+  - php -dxdebug.mode=coverage -dxdebug.coverage_enable=1 ./vendor/bin/phpunit
 
 after_script:
   - >
