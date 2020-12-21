@@ -30,7 +30,10 @@ class MemcachedTest extends TestCase
     public function testMemcachedProperties()
     {
         $filesystem = \MJRider\FlysystemFactory\create($this->root);
-        $filesystem = \MJRider\FlysystemFactory\cache('memcached://127.0.0.1:11211/?cachekey=foobar&expire=3767', $filesystem);
+        $filesystem = \MJRider\FlysystemFactory\cache(
+            'memcached://127.0.0.1:11211/?cachekey=foobar&expire=3767',
+            $filesystem
+        );
         $cache = $filesystem->getAdapter()->getCache();
 
         $reflCache = new ReflectionClass($cache);
