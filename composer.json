@@ -26,7 +26,7 @@
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "0.7.1",
-    "league/flysystem-aws-s3-v3": "1.0.29",
+    "league/flysystem-aws-s3-v3": "2.1.0",
     "league/flysystem-rackspace": "1.0.5",
     "mhetreramesh/flysystem-backblaze": "1.1.4",
     "nimbusoft/flysystem-openstack-swift": "0.3.3",
