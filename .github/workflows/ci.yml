@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: php-actions/composer@v4
+      - uses: php-actions/composer@v6
         with:
           suggest: "no"
           dev: "no"
@@ -88,7 +88,7 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
       - name: Install composer
-        uses: php-actions/composer@v4
+        uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php }}
           suggest: "no"
