@@ -6,18 +6,18 @@ on: [push]
 jobs:
   # Linters
   php-linter:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: pipeline-components/php-linter@master
   lint-remark:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Check markdown
         uses: pipeline-components/remark-lint@master
   php-security-checker:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v4
@@ -28,19 +28,19 @@ jobs:
       - name: Check php composer for security issues
         uses: pipeline-components/php-security-checker@master
   php-codesniffer:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Check php code for code issues
         uses: pipeline-components/php-codesniffer@master
   yamllint:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Check yaml for issues
         uses: pipeline-components/yamllint@master
   lint-json:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Lint php
@@ -49,7 +49,7 @@ jobs:
           args: "find . -not -path './.git/*' -name '*.json' -type f -exec jsonlint --quiet {} ;"
   # Tests
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
