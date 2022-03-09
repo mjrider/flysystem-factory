@@ -8,7 +8,7 @@ class NullTest extends TestCase
 {
     protected $root = '';
 
-    public function setup()
+    public function setUp(): void
     {
         $this->root = 'null:/';
     }
