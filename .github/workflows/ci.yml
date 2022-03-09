@@ -53,13 +53,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.1', '7.2', '7.3', '7.4']
+        php: ['7.4', '8.0', '8.1']
         experimental: [false]
-        include:
-          - php: '8.0'
-            experimental: true
-          - php: '8.1'
-            experimental: true
     name: "Test: PHP ${{ matrix.php }}"
     continue-on-error: ${{ matrix.experimental }}
     # Service containers to run with `container-job`
