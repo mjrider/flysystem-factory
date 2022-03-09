@@ -31,7 +31,7 @@
     "mhetreramesh/flysystem-backblaze": "1.1.4",
     "nimbusoft/flysystem-openstack-swift": "0.3.3",
     "phpcompatibility/php-compatibility": "9.3.5",
-    "phpunit/phpunit": "~4.0 | ~5.0 | ~6.0",
+    "phpunit/phpunit": " ~9.0",
     "predis/predis": "1.1.6"
   },
   "autoload": {
