@@ -8,18 +8,18 @@ jobs:
   php-linter:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: pipeline-components/php-linter@master
   lint-remark:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Check markdown
         uses: pipeline-components/remark-lint@master
   php-security-checker:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: php-actions/composer@v6
         with:
           suggest: "no"
@@ -30,19 +30,19 @@ jobs:
   php-codesniffer:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Check php code for code issues
         uses: pipeline-components/php-codesniffer@master
   yamllint:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Check yaml for issues
         uses: pipeline-components/yamllint@master
   lint-json:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Lint php
         uses: "docker://pipelinecomponents/jsonlint:latest"
         with:
@@ -81,7 +81,7 @@ jobs:
         env:
           PUBLICHOST: 'localhost'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
