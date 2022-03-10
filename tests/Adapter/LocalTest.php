@@ -8,7 +8,7 @@ class LocalTest extends TestCase
 {
     protected $root = '';
 
-    public function setup()
+    public function setUp(): void
     {
         $this->root = 'local:' . __DIR__ . '/files/';
         is_dir(__DIR__ . '/files/') || mkdir(__DIR__ . '/files/');

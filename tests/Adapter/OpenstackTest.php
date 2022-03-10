@@ -8,7 +8,7 @@ class OpenstackTest extends TestCase
 {
     protected $root = '';
 
-    public function setup()
+    public function setUp(): void
     {
         $this->root = getenv('TEST_OPENSTACK_LOCATION');
         if ($this->root === false) {

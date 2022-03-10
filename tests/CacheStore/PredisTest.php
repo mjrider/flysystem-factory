@@ -9,7 +9,7 @@ class PredisTest extends TestCase
 {
     protected $root = '';
 
-    public function setup()
+    public function setUp(): void
     {
         $this->root = 'null:/';
         // FIXME: getenv redis endpoint instead of hardcoding a empty url

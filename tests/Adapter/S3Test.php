@@ -11,7 +11,7 @@ class S3Test extends TestCase
 {
     protected $root = '';
 
-    public function setup()
+    public function setUp(): void
     {
         $this->root = getenv('TEST_S3_LOCATION');
         if (!class_exists('\League\Flysystem\AwsS3v3\AwsS3Adapter')) {

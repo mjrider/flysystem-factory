@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="Flysystem factory">
-    <config name="testVersion" value="7.0-"/>
+    <config name="testVersion" value="7.4-"/>
 
     <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>*.js</exclude-pattern>
