@@ -29,7 +29,7 @@
     "league/flysystem-aws-s3-v3": "1.0.29",
     "league/flysystem-rackspace": "1.0.5",
     "mhetreramesh/flysystem-backblaze": "1.1.4",
-    "nimbusoft/flysystem-openstack-swift": "0.3.3",
+    "nimbusoft/flysystem-openstack-swift": "0.4.1",
     "phpcompatibility/php-compatibility": "9.3.5",
     "phpunit/phpunit": " 9.5.18",
     "predis/predis": "1.1.10"
