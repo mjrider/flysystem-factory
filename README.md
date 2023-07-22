@@ -1,5 +1,7 @@
 # Flysystem Factory
 
+# **i'm no longer interested in this package and i'm not using it anymore my self.**
+
 This is a factory package to provide for an easy to use configuration and api for flysystem users.
 
 **Package details** 

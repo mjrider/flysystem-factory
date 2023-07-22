@@ -1,5 +1,6 @@
 {
   "name": "mjrider/flysystem-factory",
+  "abandoned": true,
   "type": "library",
   "description": "Simple factory library to create a flysystem instance from a url",
   "keywords": [
