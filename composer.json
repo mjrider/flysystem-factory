@@ -33,7 +33,7 @@
     "nimbusoft/flysystem-openstack-swift": "0.4.1",
     "phpcompatibility/php-compatibility": "9.3.5",
     "phpunit/phpunit": " 9.5.19",
-    "predis/predis": "1.1.10"
+    "predis/predis": "2.2.0"
   },
   "autoload": {
     "files": [
